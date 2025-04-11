@@ -51,9 +51,11 @@ namespace TaskManagerApp
 
         private void AddTask(string taskName, string priority)
         {
+            int newTaskId = tasks.Any() ? tasks.Last().TaskId + 1 : 1;
+
             var task = new TaskModel
             {
-                TaskId = tasks.Count + 1,
+                TaskId = newTaskId,
                 TaskName = taskName,
                 Priority = priority,
                 Status = "Pending"
